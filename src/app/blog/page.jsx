@@ -86,10 +86,10 @@ export default function BlogCategoriesPage() {
   useEffect(() => {
     async function getData() {
       const ParentcategoriesData = await fetch(
-        "https://www.kathysmith.com/wp-json/wp/v2/categories?parent=0"
+        "https://www.kathysmith.com/wp-json/wp/v2/categories?parent=0&per_page=50"
       );
       const categoriesData = await fetch(
-        "https://www.kathysmith.com/wp-json/wp/v2/categories"
+        "https://www.kathysmith.com/wp-json/wp/v2/categories&per_page=50"
       );
       const res = await categoriesData.json();
       const res2 = await ParentcategoriesData.json();
@@ -102,17 +102,17 @@ export default function BlogCategoriesPage() {
 
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 py-12 px-4">
+    <main className="max-w-[1440px] mx-auto   min-h-screen bg-gradient-to-br from-blue-50 to-purple-100 py-12 px-4">
       <h1 className="text-4xl font-extrabold text-center mb-10 text-purple-700">
         Blog Categories
       </h1>
       {/* Tabs */}
-      <div className="flex justify-center mb-8">
+      <div className=" flex  mb-8 overflow-x-scroll  ">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab)}
-            className={`px-6 py-2 mx-2 rounded-t-lg font-semibold transition-colors duration-200 ${
+            className={`min-w-[150px] px-6 py-4 m-4 rounded-t-lg font-semibold transition-colors duration-200 ${
               activeTab.name === tab.name
                 ? "bg-purple-700 text-white"
                 : "bg-white text-purple-700 border border-purple-200"

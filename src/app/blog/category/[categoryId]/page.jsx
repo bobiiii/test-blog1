@@ -13,7 +13,7 @@ async function getCategoryBySlug(slug) {
 
 async function getPostsByCategory(categoryId) {
   const res = await fetch(
-    `https://www.kathysmith.com/wp-json/wp/v2/posts?categories=${categoryId}&_embed`,
+    `https://www.kathysmith.com/wp-json/wp/v2/posts?categories=${categoryId}&_embedper_page=80`,
     { cache: "no-store" }
   );
   if (!res.ok) throw new Error("Failed to fetch posts");
