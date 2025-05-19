@@ -87,7 +87,8 @@ export default async function CategoryPage({ params }) {
                             dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                           />
                         </div>
-                        <Link href={post.link} style={{ color: "#4f46e5", fontWeight: 500, textDecoration: "none", marginTop: "0.5rem" }}>
+                        {/* <Link href={post.link} style={{ color: "#4f46e5", fontWeight: 500, textDecoration: "none", marginTop: "0.5rem" }}> */}
+                        <Link href={`/blog/category/${categoryId}/${post.slug}`} style={{ color: "#4f46e5", fontWeight: 500, textDecoration: "none", marginTop: "0.5rem" }}>
                           Read More
                         </Link>
                       </div>
